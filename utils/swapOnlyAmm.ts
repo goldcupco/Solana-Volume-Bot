@@ -96,7 +96,7 @@ export async function formatAmmKeysById(connection: Connection, id: string): Pro
     // Add defensive check here:
     if (![624, 680].includes(account.data.length)) {
       throw new Error(
-        `Account data for ${id} is not a valid Raydium pool. Data length: ${account.data.length}`
+        `Account data here for ${id} is not a valid Raydium pool. Data length: ${account.data.length}`
       );
     }
 
