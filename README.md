@@ -91,10 +91,3 @@ Rename the .env.copy file to .env and set RPC and WSS, main keypair's secret key
 ```
 npm start
 ```
-
-## Contact
-
-If you have any questions or want a more customized app for specific use cases, don't hesitate to get in touch with me to the contacts below.
-
-- E-Mail: adamglab0731.pl@gmail.com
-- Telegram: [@bettyjk_0915](https://t.me/bettyjk_0915)
