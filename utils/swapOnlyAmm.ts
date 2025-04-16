@@ -92,6 +92,14 @@ async function swapOnlyAmm(connection: Connection, input: TestTxInputInfo) {
 export async function formatAmmKeysById(connection: Connection, id: string): Promise<ApiPoolInfoV4> {
   const account = await connection.getAccountInfo(new PublicKey(id))
   if (account === null) throw Error(' get id info error ')
+
+    // Add defensive check here:
+    if (![624, 680].includes(account.data.length)) {
+      throw new Error(
+        `Account data for ${id} is not a valid Raydium pool. Data length: ${account.data.length}`
+      );
+    }
+
   const info = LIQUIDITY_STATE_LAYOUT_V4.decode(account.data)
 
   const marketId = info.marketId
@@ -213,7 +221,6 @@ export async function getSellTx(solanaConnection: Connection, wallet: Keypair, b
     return null
   }
 }
-
 
 export const getBuyTxWithJupiter = async (wallet: Keypair, baseMint: PublicKey, amount: number) => {
   try {
